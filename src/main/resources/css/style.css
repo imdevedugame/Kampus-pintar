@@ -1,0 +1,504 @@
+/* Root styling dengan tema akademik modern */
+.root {
+  -fx-font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+  -fx-background-color: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Header styling */
+.header-container {
+  -fx-background-color: rgba(255, 255, 255, 0.95);
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 5, 0, 0, 2);
+}
+
+.header {
+  -fx-background-color: transparent;
+}
+
+.title-label {
+  -fx-font-size: 22px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #2c3e50;
+}
+
+.header-button {
+  -fx-background-color: #3498db;
+  -fx-text-fill: white;
+  -fx-background-radius: 20px;
+  -fx-padding: 8 16 8 16;
+  -fx-font-weight: bold;
+  -fx-cursor: hand;
+}
+
+.header-button:hover {
+  -fx-background-color: #2980b9;
+  -fx-effect: dropshadow(three-pass-box, rgba(52, 152, 219, 0.4), 5, 0, 0, 2);
+}
+
+.header-separator {
+  -fx-background-color: #bdc3c7;
+}
+
+/* Main Tabs */
+.main-tabs {
+  -fx-background-color: transparent;
+}
+
+.main-tabs .tab-header-area {
+  -fx-padding: 0 20 0 20;
+}
+
+.main-tabs .tab {
+  -fx-background-color: rgba(52, 152, 219, 0.1);
+  -fx-background-radius: 8px 8px 0 0;
+  -fx-padding: 10 15 10 15;
+  -fx-font-size: 14px;
+  -fx-font-weight: 500;
+}
+
+.main-tabs .tab:selected {
+  -fx-background-color: #3498db;
+}
+
+.main-tabs .tab:selected .tab-label {
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+}
+
+.main-tabs .tab-content-area {
+  -fx-background-color: white;
+  -fx-border-color: transparent;
+}
+
+/* Chat area styling */
+.chat-scroll-pane {
+  -fx-background-color: transparent;
+  -fx-background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.chat-scroll-pane .viewport {
+  -fx-background-color: transparent;
+}
+
+.chat-container {
+  -fx-background-color: transparent;
+}
+
+/* Message bubbles */
+.user-message-bubble {
+  -fx-background-color: linear-gradient(to right, #667eea 0%, #764ba2 100%);
+  -fx-background-radius: 18px 18px 5px 18px;
+  -fx-effect: dropshadow(three-pass-box, rgba(102, 126, 234, 0.3), 4, 0, 0, 2);
+}
+
+.bot-message-bubble {
+  -fx-background-color: white;
+  -fx-background-radius: 18px 18px 18px 5px;
+  -fx-effect: dropshadow(three-pass-box, rgba(52, 152, 219, 0.15), 4, 0, 0, 2);
+  -fx-border-color: #e1e8ed;
+  -fx-border-radius: 18px 18px 18px 5px;
+  -fx-border-width: 1px;
+}
+
+.user-message-text {
+  -fx-fill: white;
+  -fx-font-size: 14px;
+  -fx-font-weight: 500;
+}
+
+.bot-message-text {
+  -fx-fill: #2c3e50;
+  -fx-font-size: 14px;
+  -fx-line-spacing: 2px;
+}
+
+.timestamp {
+  -fx-text-fill: rgba(255, 255, 255, 0.8);
+  -fx-font-size: 11px;
+  -fx-font-style: italic;
+}
+
+.bot-message-bubble .timestamp {
+  -fx-text-fill: #95a5a6;
+}
+
+/* Input area styling */
+.input-container {
+  -fx-background-color: rgba(255, 255, 255, 0.95);
+  -fx-effect: dropshadow(three-pass-box, rgba(52, 152, 219, 0.2), 5, 0, 0, -2);
+}
+
+.input-separator {
+  -fx-background-color: #bdc3c7;
+}
+
+.input-area {
+  -fx-background-color: transparent;
+}
+
+.message-input {
+  -fx-background-color: #f8f9fa;
+  -fx-background-radius: 25px;
+  -fx-border-color: #dee2e6;
+  -fx-border-radius: 25px;
+  -fx-border-width: 2px;
+  -fx-padding: 12 20 12 20;
+  -fx-font-size: 14px;
+}
+
+.message-input:focused {
+  -fx-border-color: #3498db;
+  -fx-effect: dropshadow(three-pass-box, rgba(52, 152, 219, 0.3), 5, 0, 0, 0);
+}
+
+.send-button {
+  -fx-background-color: linear-gradient(to right, #667eea 0%, #764ba2 100%);
+  -fx-text-fill: white;
+  -fx-background-radius: 25px;
+  -fx-padding: 12 24 12 24;
+  -fx-font-weight: bold;
+  -fx-font-size: 14px;
+  -fx-cursor: hand;
+}
+
+.send-button:hover {
+  -fx-effect: dropshadow(three-pass-box, rgba(102, 126, 234, 0.5), 8, 0, 0, 2);
+  -fx-scale-x: 1.05;
+  -fx-scale-y: 1.05;
+}
+
+.send-button:disabled {
+  -fx-background-color: #bdc3c7;
+  -fx-effect: none;
+  -fx-scale-x: 1.0;
+  -fx-scale-y: 1.0;
+}
+
+.status-label {
+  -fx-text-fill: #7f8c8d;
+  -fx-font-size: 12px;
+  -fx-padding: 5 20 5 20;
+}
+
+/* Tab Content */
+.tab-content {
+  -fx-background-color: white;
+}
+
+.tab-title {
+  -fx-font-size: 20px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #2c3e50;
+}
+
+.section-title {
+  -fx-font-size: 16px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #2c3e50;
+}
+
+.section-subtitle {
+  -fx-font-size: 14px;
+  -fx-font-weight: 600;
+  -fx-text-fill: #34495e;
+}
+
+/* Dashboard */
+.dashboard-content {
+  -fx-background-color: white;
+}
+
+.dashboard-section {
+  -fx-background-color: #f8f9fa;
+  -fx-background-radius: 10px;
+  -fx-padding: 20px;
+  -fx-spacing: 15px;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 3, 0, 0, 1);
+}
+
+.stat-box {
+  -fx-background-color: white;
+  -fx-background-radius: 8px;
+  -fx-padding: 15px;
+  -fx-alignment: CENTER;
+  -fx-spacing: 5px;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 2, 0, 0, 1);
+}
+
+.stat-number {
+  -fx-font-size: 24px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #3498db;
+}
+
+.stat-label {
+  -fx-font-size: 12px;
+  -fx-text-fill: #7f8c8d;
+  -fx-font-weight: 500;
+}
+
+.progress-bar {
+  -fx-accent: #3498db;
+}
+
+.progress-label {
+  -fx-font-size: 12px;
+  -fx-text-fill: #7f8c8d;
+}
+
+.quick-action-btn {
+  -fx-background-color: #3498db;
+  -fx-text-fill: white;
+  -fx-background-radius: 8px;
+  -fx-padding: 10 15 10 15;
+  -fx-font-weight: 500;
+  -fx-cursor: hand;
+}
+
+.quick-action-btn:hover {
+  -fx-background-color: #2980b9;
+  -fx-effect: dropshadow(three-pass-box, rgba(52, 152, 219, 0.3), 3, 0, 0, 1);
+}
+
+/* Todo List */
+.todo-input {
+  -fx-background-color: #f8f9fa;
+  -fx-background-radius: 8px;
+  -fx-border-color: #dee2e6;
+  -fx-border-radius: 8px;
+  -fx-padding: 10px;
+  -fx-font-size: 14px;
+}
+
+.todo-input:focused {
+  -fx-border-color: #3498db;
+}
+
+.add-todo-btn {
+  -fx-background-color: #27ae60;
+  -fx-text-fill: white;
+  -fx-background-radius: 8px;
+  -fx-font-weight: bold;
+  -fx-cursor: hand;
+}
+
+.add-todo-btn:hover {
+  -fx-background-color: #229954;
+}
+
+.todo-list {
+  -fx-background-color: #f8f9fa;
+  -fx-background-radius: 8px;
+  -fx-border-color: #dee2e6;
+  -fx-border-radius: 8px;
+}
+
+.todo-list .list-cell {
+  -fx-background-color: transparent;
+  -fx-padding: 10px;
+  -fx-font-size: 14px;
+}
+
+.todo-list .list-cell:selected {
+  -fx-background-color: rgba(52, 152, 219, 0.2);
+}
+
+/* Pomodoro */
+.pomodoro-container {
+  -fx-background-color: #f8f9fa;
+  -fx-background-radius: 20px;
+  -fx-padding: 30px;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 5, 0, 0, 2);
+}
+
+.pomodoro-time {
+  -fx-font-size: 48px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #e74c3c;
+  -fx-font-family: "Courier New", monospace;
+}
+
+.pomodoro-session {
+  -fx-font-size: 16px;
+  -fx-text-fill: #7f8c8d;
+  -fx-font-weight: 500;
+}
+
+.pomodoro-progress {
+  -fx-accent: #e74c3c;
+}
+
+.pomodoro-btn {
+  -fx-background-radius: 25px;
+  -fx-padding: 12 20 12 20;
+  -fx-font-weight: bold;
+  -fx-font-size: 14px;
+  -fx-cursor: hand;
+}
+
+.start-btn {
+  -fx-background-color: #27ae60;
+  -fx-text-fill: white;
+}
+
+.start-btn:hover {
+  -fx-background-color: #229954;
+}
+
+.pause-btn {
+  -fx-background-color: #f39c12;
+  -fx-text-fill: white;
+}
+
+.pause-btn:hover {
+  -fx-background-color: #e67e22;
+}
+
+.reset-btn {
+  -fx-background-color: #e74c3c;
+  -fx-text-fill: white;
+}
+
+.reset-btn:hover {
+  -fx-background-color: #c0392b;
+}
+
+.pomodoro-tips {
+  -fx-background-color: rgba(231, 76, 60, 0.1);
+  -fx-background-radius: 10px;
+  -fx-padding: 15px;
+  -fx-spacing: 5px;
+}
+
+.tips-title {
+  -fx-font-size: 14px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #e74c3c;
+}
+
+.tip-item {
+  -fx-font-size: 12px;
+  -fx-text-fill: #7f8c8d;
+}
+
+/* GPA Calculator */
+.gpa-overview {
+  -fx-background-color: #f8f9fa;
+  -fx-background-radius: 10px;
+  -fx-padding: 20px;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 3, 0, 0, 1);
+}
+
+.gpa-stat {
+  -fx-background-color: white;
+  -fx-background-radius: 10px;
+  -fx-padding: 20px;
+  -fx-spacing: 8px;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 2, 0, 0, 1);
+}
+
+.gpa-number {
+  -fx-font-size: 32px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #3498db;
+}
+
+.gpa-label {
+  -fx-font-size: 14px;
+  -fx-text-fill: #7f8c8d;
+  -fx-font-weight: 500;
+}
+
+.course-input,
+.credits-input {
+  -fx-background-color: #f8f9fa;
+  -fx-background-radius: 8px;
+  -fx-border-color: #dee2e6;
+  -fx-border-radius: 8px;
+  -fx-padding: 10px;
+  -fx-font-size: 14px;
+}
+
+.course-input:focused,
+.credits-input:focused {
+  -fx-border-color: #3498db;
+}
+
+.grade-combo {
+  -fx-background-color: #f8f9fa;
+  -fx-background-radius: 8px;
+  -fx-border-color: #dee2e6;
+  -fx-border-radius: 8px;
+}
+
+.add-course-btn {
+  -fx-background-color: #3498db;
+  -fx-text-fill: white;
+  -fx-background-radius: 8px;
+  -fx-padding: 12px;
+  -fx-font-weight: bold;
+  -fx-cursor: hand;
+}
+
+.add-course-btn:hover {
+  -fx-background-color: #2980b9;
+}
+
+.course-list {
+  -fx-background-color: #f8f9fa;
+  -fx-background-radius: 8px;
+  -fx-border-color: #dee2e6;
+  -fx-border-radius: 8px;
+}
+
+.course-list .list-cell {
+  -fx-background-color: transparent;
+  -fx-padding: 10px;
+  -fx-font-size: 14px;
+}
+
+.course-list .list-cell:selected {
+  -fx-background-color: rgba(52, 152, 219, 0.2);
+}
+
+/* Charts */
+.chart-container {
+  -fx-background-color: #f8f9fa;
+  -fx-background-radius: 10px;
+  -fx-padding: 20px;
+  -fx-spacing: 10px;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 3, 0, 0, 1);
+}
+
+.chart-title {
+  -fx-font-size: 16px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #2c3e50;
+}
+
+.study-chart,
+.subject-chart {
+  -fx-background-color: white;
+  -fx-background-radius: 8px;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 2, 0, 0, 1);
+}
+
+/* Scroll Panes */
+.tab-scroll {
+  -fx-background-color: transparent;
+}
+
+.tab-scroll .viewport {
+  -fx-background-color: transparent;
+}
+
+/* Hover effects */
+.user-message-bubble:hover,
+.bot-message-bubble:hover {
+  -fx-effect: dropshadow(three-pass-box, rgba(52, 152, 219, 0.3), 6, 0, 0, 3);
+}
+
+/* Responsive adjustments */
+.main-tabs .tab-pane {
+  -fx-tab-min-width: 100px;
+  -fx-tab-max-width: 150px;
+}

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+   <?import javafx.geometry.Insets?>
+   <?import javafx.scene.control.*?>
+   <?import javafx.scene.layout.*?>
+   <?import javafx.scene.chart.*?>
+
+   <BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.kampuspintar.controllers.MainController">
+      <top>
+         <VBox styleClass="header-container">
+            <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="header">
+               <padding>
+                  <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+               </padding>
+               <Label styleClass="title-label" text="🎓 Kampus Pintar Pro - AI Study Assistant" />
+               <Region HBox.hgrow="ALWAYS" />
+               <Button onAction="#clearChat" styleClass="header-button" text="Chat Baru" />
+               <Button onAction="#showAbout" styleClass="header-button" text="Tentang" />
+            </HBox>
+            <Separator styleClass="header-separator" />
+         </VBox>
+      </top>
+
+      <center>
+         <TabPane fx:id="mainTabPane" styleClass="main-tabs" tabClosingPolicy="UNAVAILABLE">
+
+            <!-- Chat Tab -->
+            <Tab text="💬 Chat AI">
+               <VBox>
+                  <ScrollPane fx:id="chatScrollPane" styleClass="chat-scroll-pane" VBox.vgrow="ALWAYS">
+                     <VBox fx:id="chatContainer" styleClass="chat-container" />
+                  </ScrollPane>
+
+                  <!-- Input Area -->
+                  <VBox styleClass="input-container">
+                     <Separator styleClass="input-separator" />
+                     <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="input-area">
+                        <padding>
+                           <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                        </padding>
+                        <TextField fx:id="messageInput" promptText="Tanya apa aja tentang kuliah dan belajar..." styleClass="message-input" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="sendButton" styleClass="send-button" text="Kirim" />
+                        <ProgressIndicator fx:id="loadingIndicator" maxHeight="24.0" maxWidth="24.0" />
+                     </HBox>
+                     <Label fx:id="statusLabel" styleClass="status-label" text="Siap membantu!" />
+                  </VBox>
+               </VBox>
+            </Tab>
+
+            <!-- Dashboard Tab -->
+            <Tab text="📊 Dashboard">
+               <ScrollPane fitToWidth="true" styleClass="tab-scroll">
+                  <VBox spacing="20.0" styleClass="dashboard-content">
+                     <padding>
+                        <Insets top="20.0" left="20.0" right="20.0" bottom="20.0" />
+                     </padding>
+
+                     <!-- Status Overview -->
+                     <VBox styleClass="dashboard-section">
+                        <Label styleClass="section-title" text="📈 Progress Hari Ini" />
+                        <HBox spacing="20.0" alignment="CENTER_LEFT">
+                           <VBox styleClass="stat-box">
+                              <Label fx:id="todayStudyTimeLabel" styleClass="stat-number" text="0 menit" />
+                              <Label styleClass="stat-label" text="Waktu Belajar" />
+                           </VBox>
+                           <VBox styleClass="stat-box">
+                              <Label fx:id="currentGPALabel" styleClass="stat-number" text="0.00" />
+                              <Label styleClass="stat-label" text="IPK Saat Ini" />
+                           </VBox>
+                        </HBox>
+
+                        <Label styleClass="section-subtitle" text="Progress Target Mingguan" />
+                        <ProgressBar fx:id="weeklyProgressBar" prefWidth="300.0" styleClass="progress-bar" />
+                        <Label fx:id="weeklyGoalLabel" styleClass="progress-label" text="Target: 1200 menit" />
+                     </VBox>
+
+                     <!-- Quick Actions -->
+                     <VBox styleClass="dashboard-section">
+                        <Label styleClass="section-title" text="⚡ Aksi Cepat" />
+                        <HBox spacing="10.0">
+                           <Button text="🍅 Mulai Pomodoro" styleClass="quick-action-btn" onAction="#startPomodoro" />
+                           <Button text="📝 Tambah Tugas" styleClass="quick-action-btn" />
+                           <Button text="📊 Lihat Analytics" styleClass="quick-action-btn" />
+                        </HBox>
+                     </VBox>
+                  </VBox>
+               </ScrollPane>
+            </Tab>
+
+            <!-- Todo Tab -->
+            <Tab text="📝 Tugas">
+               <VBox spacing="15.0" styleClass="tab-content">
+                  <padding>
+                     <Insets top="20.0" left="20.0" right="20.0" bottom="20.0" />
+                  </padding>
+
+                  <Label styleClass="tab-title" text="📋 Daftar Tugas" />
+
+                  <HBox spacing="10.0">
+                     <TextField fx:id="newTodoField" promptText="Tambah tugas baru..." HBox.hgrow="ALWAYS" styleClass="todo-input" />
+                     <Button fx:id="addTodoButton" text="➕ Tambah" styleClass="add-todo-btn" />
+                  </HBox>
+
+                  <ListView fx:id="todoListView" prefHeight="400.0" styleClass="todo-list" VBox.vgrow="ALWAYS" />
+               </VBox>
+            </Tab>
+
+            <!-- Pomodoro Tab -->
+            <Tab text="🍅 Pomodoro">
+               <VBox spacing="20.0" alignment="CENTER" styleClass="tab-content">
+                  <padding>
+                     <Insets top="40.0" left="20.0" right="20.0" bottom="20.0" />
+                  </padding>
+
+                  <VBox styleClass="pomodoro-container" alignment="CENTER" spacing="15.0">
+                     <Label fx:id="pomodoroTimeLabel" styleClass="pomodoro-time" text="25:00" />
+                     <Label fx:id="pomodoroSessionLabel" styleClass="pomodoro-session" text="Sesi 1 dari 4" />
+                     <ProgressBar fx:id="pomodoroProgressBar" prefWidth="300.0" styleClass="pomodoro-progress" />
+                  </VBox>
+
+                  <HBox spacing="15.0" alignment="CENTER">
+                     <Button fx:id="startPomodoroButton" text="▶️ Mulai" styleClass="pomodoro-btn start-btn" />
+                     <Button fx:id="pausePomodoroButton" text="⏸️ Pause" styleClass="pomodoro-btn pause-btn" />
+                     <Button fx:id="resetPomodoroButton" text="🔄 Reset" styleClass="pomodoro-btn reset-btn" />
+                  </HBox>
+
+                  <VBox styleClass="pomodoro-tips" spacing="8.0">
+                     <Label styleClass="tips-title" text="🎯 Tips Pomodoro:" />
+                     <Label styleClass="tip-item" text="• 25 menit fokus belajar" />
+                     <Label styleClass="tip-item" text="• 5 menit istirahat pendek" />
+                     <Label styleClass="tip-item" text="• 15 menit istirahat panjang setelah 4 sesi" />
+                  </VBox>
+               </VBox>
+            </Tab>
+
+            <!-- GPA Tab -->
+            <Tab text="📊 IPK">
+               <VBox spacing="15.0" styleClass="tab-content">
+                  <padding>
+                     <Insets top="20.0" left="20.0" right="20.0" bottom="20.0" />
+                  </padding>
+
+                  <VBox styleClass="gpa-overview" spacing="10.0">
+                     <Label styleClass="tab-title" text="🎓 Kalkulator IPK" />
+                     <HBox spacing="30.0" alignment="CENTER">
+                        <VBox alignment="CENTER" styleClass="gpa-stat">
+                           <Label fx:id="gpaCalculatorLabel" styleClass="gpa-number" text="0.00" />
+                           <Label styleClass="gpa-label" text="IPK Saat Ini" />
+                        </VBox>
+                        <VBox alignment="CENTER" styleClass="gpa-stat">
+                           <Label fx:id="totalCreditsLabel" styleClass="gpa-number" text="0" />
+                           <Label styleClass="gpa-label" text="Total SKS" />
+                        </VBox>
+                     </HBox>
+                  </VBox>
+
+                  <Separator />
+
+                  <Label styleClass="section-subtitle" text="Tambah Mata Kuliah:" />
+                  <VBox spacing="10.0">
+                     <TextField fx:id="courseNameField" promptText="Nama mata kuliah..." styleClass="course-input" />
+                     <HBox spacing="10.0">
+                        <TextField fx:id="creditsField" promptText="SKS" styleClass="credits-input" />
+                        <ComboBox fx:id="gradeComboBox" promptText="Pilih Nilai" styleClass="grade-combo" HBox.hgrow="ALWAYS" />
+                     </HBox>
+                     <Button fx:id="addCourseButton" text="➕ Tambah Mata Kuliah" styleClass="add-course-btn" maxWidth="Infinity" />
+                  </VBox>
+
+                  <ListView fx:id="courseListView" prefHeight="200.0" styleClass="course-list" VBox.vgrow="ALWAYS" />
+               </VBox>
+            </Tab>
+
+            <!-- Analytics Tab -->
+            <Tab text="📈 Analytics">
+               <ScrollPane fitToWidth="true" styleClass="tab-scroll">
+                  <VBox spacing="20.0" styleClass="tab-content">
+                     <padding>
+                        <Insets top="20.0" left="20.0" right="20.0" bottom="20.0" />
+                     </padding>
+
+                     <Label styleClass="tab-title" text="📊 Analisis Belajar" />
+
+                     <!-- Weekly Chart -->
+                     <VBox styleClass="chart-container">
+                        <Label styleClass="chart-title" text="Waktu Belajar Mingguan" />
+                        <LineChart fx:id="studyChart" prefHeight="200.0" styleClass="study-chart">
+                           <xAxis>
+                              <CategoryAxis />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis />
+                           </yAxis>
+                        </LineChart>
+                     </VBox>
+
+                     <!-- Subject Distribution -->
+                     <VBox styleClass="chart-container">
+                        <Label styleClass="chart-title" text="Distribusi Mata Pelajaran" />
+                        <PieChart fx:id="subjectChart" prefHeight="200.0" styleClass="subject-chart" />
+                     </VBox>
+                  </VBox>
+               </ScrollPane>
+            </Tab>
+
+         </TabPane>
+      </center>
+   </BorderPane>
